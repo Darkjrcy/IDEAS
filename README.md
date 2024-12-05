@@ -35,9 +35,10 @@ install(
 ament_package()
 
 ```
-Now, inside the models folder add another folder with the name you want to see the model called inside Gazebo, copy the dae file with their textures inside the new folder and create two new files, for example:
+Now, inside the models folder add another folder with the name you want to see the model called inside Gazebo, copy the dae file with their textures inside the new folder and create two new files: a sdf file with your mdoel name and a model.config file. Here is an example for the Daytona City.
 
-![image](https://github.com/user-attachments/assets/de103054-1270-4302-ab7d-4c15f3b29f96)
+![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen](https://github.com/user-attachments/assets/fc85f568-716e-4353-9891-e6c63b56e4c0)
+
 
 
 
