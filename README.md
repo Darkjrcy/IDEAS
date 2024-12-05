@@ -39,6 +39,37 @@ Now, inside the models folder add another folder with the name you want to see t
 
 ![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen](https://github.com/user-attachments/assets/fc85f568-716e-4353-9891-e6c63b56e4c0)
 
+The sdf file describes which file is going to be used to generate the mesh of the city.
+```xml
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Daytona">
+    <!-- Pose of the model respect to the origin-->
+    <pose>0 0 0 0 0 0</pose>
+    <!-- Make the city static -->
+    <static>true</static>
+    <!-- Name of the link you want to add the 3D model-->
+    <link name="city">
+      <!-- Generate the mesh so the city is visible using the .dae format-->
+      <visual name="visual">
+        <!-- Geometry is the property that finds the 3D modeling of the city,where the path
+            to the dae file starts from the models folder-->
+        <geometry>
+          <mesh><uri>model://Daytona/Daytona.dae</uri></mesh>
+        </geometry>
+        <pose>0 0 -3.5 0 0 0</pose>
+      </visual>
+      <!-- Collision gives the de file mass and inertia-->
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://Daytona/Daytona.dae</uri></mesh>
+        </geometry>
+        <pose>0 0 -3.5 0 0 0</pose>
+      </collision>
+    </link>
+  </model>
+</sdf>
+```
 
 
 
