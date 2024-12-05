@@ -6,7 +6,9 @@ Ideas to see how Github works before submiting
 The prefered 3D modeling formats in Gazebo are: Digital Asset Exchange (dae), or Standard Triangle Language (stl). The first step to add the city into the Gazebo world is to generate the city 3D model, to do it you can use blender and follow the steps in the next video: https://www.youtube.com/watch?v=ZsLMt3Ka8UA&t=700s
 ## 2. Spawn the 3D model in Gazebo
 There are two ways to spawn the mdoel into Gazebo, using an URDF file or generating a model directory to spawn it directly from gazebo (recommended).
-### 2.1 
+### 2.1 Generate the model directly in Gazebo (Recommended)
+First, create a folder called models into the same package you have your worlds, and input it into the CMakeLists of your package.
+
 ### 2.2 Use a URDF file to spawn the Gazebo model into a World
 First, add the city model in stl or dae format to your meshes folder. Then, create a joint between a dummy link and your city inside your URDF file. 
 ```xml
@@ -51,4 +53,4 @@ First, add the city model in stl or dae format to your meshes folder. Then, crea
         <child link="city_link"/>
     </joint>
 ```
-Now, when you spawn your URDF file the city woudl be spawned in the origin. 
+Now, when you spawn your URDF file the city woudl be spawned in the origin. If you have questions in how to launch an URDF file into Gazebo see: https://www.youtube.com/watch?v=w6Kvq7ac-J8
