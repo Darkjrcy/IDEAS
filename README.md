@@ -41,7 +41,7 @@ Now, inside the models folder add another folder with the name you want to see t
 
 #### Model sdf file
 
-The sdf file describes which file is going to be used to generate the mesh of the city.
+The sdf file is responsible of generating the .dae file into gazebo with his mass and visual characteristics. Here is a template, where the model used is Daytona.dae.
 
 ```xml
 <?xml version="1.0" ?>
