@@ -28,7 +28,8 @@ install(
   DIRECTORY 
   launch 
   worlds
-  models #Here is the models folder installed
+  #Here is the models folder installed
+  models 
   DESTINATION share/${PROJECT_NAME}/
 )
 
