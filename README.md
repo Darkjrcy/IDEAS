@@ -3,11 +3,15 @@ Ideas to see how Github works before submiting
 
 # Adding a city to Gazebo
 ## 1. Generate the 3D model of the city
-The prefered 3D modeling formats in Gazebo are: Digital Asset Exchange (dae), or Standard Triangle Language (stl). The first step to add the city into the Gazebo world is to generate the city 3D model, to do it you can use blender and follow the steps in the next video: https://www.youtube.com/watch?v=ZsLMt3Ka8UA&t=700s
+There are several ways to generate cities inside Gazebo from OpenStreetMaps (OSM). Here is a simpler and fast way to generate these cities into a Gazebo world, to use them for simulations. The first step to add the OSM file into the Gazebo world, is to generate the city 3D model using blender (Steps: https://www.youtube.com/watch?v=ZsLMt3Ka8UA&t=700s) 
+
 ## 2. Spawn the 3D model in Gazebo
-There are two ways to spawn the mdoel into Gazebo, using an URDF file or generating a model directory to spawn it directly from gazebo (recommended).
+There are several ways to spawn a 3D model into Gazebo, the best two are by generating a model configured to be used inside the Gazebo software (recommended), or spawn the 3D model directly in your URDF file (easier).  
+
 ### 2.1 Generate the model directly in Gazebo (Recommended)
-First, create a folder called models into the same package you have your worlds, and input it into the CMakeLists of your package. 
+
+First, create a folder called models into the same package you saved your worlds, be sure you install the folder inside your CMake list. 
+
 ```txt
 cmake_minimum_required(VERSION 3.8)
 project(plane_bringup)
@@ -35,13 +39,14 @@ install(
 ament_package()
 
 ```
-Now, inside the models folder add another folder with the name you want to see the model called inside Gazebo, copy the dae file with their textures inside the new folder and create two new files: a sdf file with your mdoel name and a model.config file. Here is an example for the Daytona City.
+
+Inside your models folder generate a new folder with the name you want to call your model inside the Gazebo software. Copy your dae file with their textures inside your new folder, and create two files: a sdf file and model.config
 
 ![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen](https://github.com/user-attachments/assets/fc85f568-716e-4353-9891-e6c63b56e4c0)
 
 #### Model sdf file
 
-The sdf file is responsible of generating the .dae file into gazebo with his mass and visual characteristics. Here is a template, where the model used is Daytona.dae.
+The sdf file is responsible of telling Gazebo which dae file is used to generate the visual and collision properties of your model from your dae file. Here is a template, where we use a Daytona.dae.
 
 ```xml
 <?xml version="1.0" ?>
@@ -85,7 +90,7 @@ The config file makes it possible to read the sdf file directly from the Gazebo 
 </model>
 ```
 ### Add the model to a Gazebo World
-Open the Gazebo software, and go to insert.
+Finally, to open the model into Gqazebo, open the Gazebo software, and go to insert.
 
 ![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(1)](https://github.com/user-attachments/assets/34b313db-e9b1-4313-8b3a-245a59b38a37)
 
@@ -93,7 +98,8 @@ Using Add Paths open your models folder.
 
 ![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(2)](https://github.com/user-attachments/assets/3ff8ea77-27b4-4903-94a2-f4b018e4d5fa)
 
-You now have access to all the 3D models within the models folder. To create a custom world, simply add the desired 3D models into Gazebo, arrange them as needed, and save the world file into the worlds folder. This allows you to seamlessly use the new world in your simulations.
+You now have access to all the 3D models within the models folder. To create a custom world, simply add the desired 3D models into Gazebo, arrange them as needed, and save the world file into the worlds folder. This file can be used later into simulations to spawn your robots.
+
 ![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(3)](https://github.com/user-attachments/assets/454b1f53-008b-418a-b55c-f46e2c77b340)
 
 
