@@ -7,7 +7,7 @@ The prefered 3D modeling formats in Gazebo are: Digital Asset Exchange (dae), or
 ## 2. Spawn the 3D model in Gazebo
 There are two ways to spawn the mdoel into Gazebo, using an URDF file or generating a model directory to spawn it directly from gazebo (recommended).
 ### 2.1 Generate the model directly in Gazebo (Recommended)
-First, create a folder called models into the same package you have your worlds, and input it into the CMakeLists of your package. For example;
+First, create a folder called models into the same package you have your worlds, and input it into the CMakeLists of your package. 
 ```txt
 cmake_minimum_required(VERSION 3.8)
 project(plane_bringup)
@@ -23,12 +23,11 @@ find_package(urdf REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-# Add models into the installation folder:
+# Add models into the installation folder here:
 install(
   DIRECTORY 
   launch 
   worlds
-  #Here is the models folder installed
   models 
   DESTINATION share/${PROJECT_NAME}/
 )
@@ -36,6 +35,13 @@ install(
 ament_package()
 
 ```
+Now, inside the models folder add another folder with the name you want to see the model called inside Gazebo, copy the dae file with their textures inside the new folder and create two new files, for example:
+
+![image](https://github.com/user-attachments/assets/de103054-1270-4302-ab7d-4c15f3b29f96)
+
+
+
+
 
 ### 2.2 Use a URDF file to spawn the Gazebo model into a World
 First, add the city model in stl or dae format to your meshes folder. Then, create a joint between a dummy link and your city inside your URDF file. 
