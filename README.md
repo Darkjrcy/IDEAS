@@ -73,6 +73,28 @@ The sdf file is responsible of generating the .dae file into gazebo with his mas
   </model>
 </sdf>
 ```
+#### Config file:
+The config file makes it possible to read the sdf file directly from the Gazebo program. Here is a template using the Daytona model. 
+```xml
+<?xml version="1.0"?>
+
+<model>
+  <name>Daytona</name>
+  <version>1.0</version>
+  <sdf version="1.5">Daytona.sdf</sdf>
+</model>
+```
+### Add the model to a Gazebo World
+Open the Gazebo software, and go to insert.
+
+![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(1)](https://github.com/user-attachments/assets/34b313db-e9b1-4313-8b3a-245a59b38a37)
+
+Using Add Paths open your models folder.
+
+![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(2)](https://github.com/user-attachments/assets/3ff8ea77-27b4-4903-94a2-f4b018e4d5fa)
+
+You now have access to all the 3D models within the models folder. To create a custom world, simply add the desired 3D models into Gazebo, arrange them as needed, and save the world file into the worlds folder. This allows you to seamlessly use the new world in your simulations.
+![cmake_minimum_required(VERSION 3 8) project(plane_bringup) if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES Clang) add_compile_options(-Wall -Wextra -Wpedantic) endif() # find dependen(3)](https://github.com/user-attachments/assets/454b1f53-008b-418a-b55c-f46e2c77b340)
 
 
 
